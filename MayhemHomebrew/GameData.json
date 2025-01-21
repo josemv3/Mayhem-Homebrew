@@ -1,0 +1,361 @@
+{
+  "corridors": [
+    {
+      "title": "Dusty Hallway",
+      "flavor": "Cobwebs drape from the ceiling; an ancient breeze stirs the dust."
+    },
+    {
+      "title": "Flooded Passage",
+      "flavor": "Ankle-deep water ripples around your feet; distant dripping echoes."
+    },
+    {
+      "title": "Crumbled Archway",
+      "flavor": "Rubble blocks part of the corridor; large stones have fallen from above."
+    },
+    {
+      "title": "Whispering Vines",
+      "flavor": "Thick vines crawl across the walls, gently rustling as if whispering."
+    },
+    {
+      "title": "Torchlit Gallery",
+      "flavor": "Old sconces still burn with magical torches, casting dancing shadows."
+    },
+    {
+      "title": "Mosaicked Hall",
+      "flavor": "The floor is a colorful mosaic depicting mythical beasts. Some tiles are cracked."
+    },
+    {
+      "title": "Chilled Passage",
+      "flavor": "A sudden drop in temperature; frost clings to the walls."
+    },
+    {
+      "title": "Sculpted Tunnel",
+      "flavor": "Smooth, polished walls carved with swirling motifs. The floor slopes downward."
+    },
+    {
+      "title": "Murky Mist",
+      "flavor": "A corridor filled with low-lying mist that clings to your ankles."
+    },
+    {
+      "title": "Twisting Passage",
+      "flavor": "The corridor bends multiple times, making it easy to get disoriented."
+    }
+  ],
+  "rooms": [
+    {
+      "title": "Arcane Workshop",
+      "flavor": "Tables cluttered with half-finished potions and runic scribbles."
+    },
+    {
+      "title": "Statue Chamber",
+      "flavor": "Four statues line the walls, each depicting a legendary hero."
+    },
+    {
+      "title": "The Crypt",
+      "flavor": "Rows of stone coffins in the walls; the air is stale and cold."
+    },
+    {
+      "title": "Alchemist’s Vault",
+      "flavor": "Shelves of potions and swirling liquids in glass jars."
+    },
+    {
+      "title": "Summoning Circle",
+      "flavor": "A chalk circle etched on the floor, candles flicker around the edges."
+    },
+    {
+      "title": "Collapsed Library",
+      "flavor": "Rotting books and broken shelves; half the ceiling has caved in."
+    },
+    {
+      "title": "Beast Pen",
+      "flavor": "Iron bars, straw on the floor, and a lingering animal musk."
+    },
+    {
+      "title": "Elemental Shrine",
+      "flavor": "A stone dais with four elemental symbols (fire, water, air, earth)."
+    },
+    {
+      "title": "Hall of Mirrors",
+      "flavor": "Reflective panels line every wall. Distorted images swirl around you."
+    },
+    {
+      "title": "The Feasting Hall",
+      "flavor": "A long table laden with dusty platters; a rotten smell lingers."
+    },
+    {
+      "title": "Spider Nest",
+      "flavor": "Webs drape from the ceiling; the floor is sticky with silk."
+    },
+    {
+      "title": "Guardian Golem Room",
+      "flavor": "A silent, stone golem stands in the center, inert… maybe."
+    },
+    {
+      "title": "Arcane Pool",
+      "flavor": "A shimmering pool of magical water with runes around the edges."
+    },
+    {
+      "title": "Prison Cells",
+      "flavor": "Iron bars and rusted locks. A few skeletons linger in old cells."
+    },
+    {
+      "title": "Throne Room",
+      "flavor": "A dusty throne on a raised platform, tapestries of a forgotten king."
+    }
+  ],
+  "traps": [
+    {
+      "title": "Swinging Blades",
+      "easy": "One blade swings down; each hero rolls a die. On an odd roll, take 1 HP damage.",
+      "medium": "Blades swing from both sides; each hero rolls a die. On a 4 or lower, take 2 HP damage.",
+      "hard": "Multiple blades descend rapidly; each hero discards 1 card and takes 3 HP damage if they roll below a 5."
+    },
+    {
+      "title": "Sticky Webs",
+      "easy": "Lose next turn unless you discard a card.",
+      "medium": "Heroes lose next turn and discard 1 card to escape.",
+      "hard": "Trapped for two turns unless you discard 2 cards or take 3 HP damage."
+    },
+    {
+      "title": "Rolling Boulder",
+      "easy": "Dodge with a successful roll (4+ on a d6), or take 2 HP damage.",
+      "medium": "Each hero must discard a card and roll a 5+ to avoid 3 HP damage.",
+      "hard": "Heroes must roll a 6+ to escape; failure results in 4 HP damage and skipping next turn."
+    },
+    {
+      "title": "Magical Curse Glyph",
+      "easy": "Disarm with an intelligence-based challenge; failure = -1 attack next turn.",
+      "medium": "Failure = 2 HP damage and discarding a card.",
+      "hard": "Curse siphons energy; take 3 HP damage and lose 1 action for the next two turns."
+    },
+    {
+      "title": "Pit Trap",
+      "easy": "Roll a 3+ (d6) to avoid. Failure = 1 HP damage or skip next draw.",
+      "medium": "Roll a 4+ to avoid. Failure = 2 HP damage or skip next draw.",
+      "hard": "Roll a 5+ to avoid. Failure = 3 HP damage and skip next turn."
+    },
+    {
+      "title": "Poison Darts",
+      "easy": "A weak dart trap; each hero takes 1 HP damage if triggered.",
+      "medium": "Enhanced poison darts; each hero takes 2 HP damage and discards 1 card.",
+      "hard": "Deadly darts; 3 HP damage, discard 1 card, and -1 penalty on next action."
+    },
+    {
+      "title": "Fire Spout",
+      "easy": "A small burst of flames; take 1 HP damage or discard 1 card.",
+      "medium": "A stronger spout; take 2 HP damage or discard 1 card.",
+      "hard": "A scorching blast; take 3 HP damage and discard 2 cards."
+    },
+    {
+      "title": "Collapsing Ceiling",
+      "easy": "Small debris falls; discard 1 card or take 1 HP damage.",
+      "medium": "Large chunks fall; discard 1 card or take 2 HP damage.",
+      "hard": "Ceiling crumbles heavily; discard 2 cards or take 3 HP damage."
+    }
+  ],
+  "puzzles": [
+    {
+      "title": "The Goblin’s Gate Riddle",
+      "setupFlavor": "A locked gate with a grinning goblin face carved into it. A riddle reads: 'I have towns, but no houses...What am I?'",
+      "mechanic": "If the kids guess correctly (answer: 'A map'), the gate unlocks. Wrong guesses trigger minor traps.",
+      "randomize": "Use different riddles each time. For younger kids, simpler riddles."
+    },
+    {
+      "title": "The Three Levers of Fate",
+      "setupFlavor": "A wall with three levers labeled sun, moon, star. Pulling them in the correct order opens a door.",
+      "mechanic": "Correct sequence opens the door, wrong sequence triggers a small trap or penalty.",
+      "randomize": "Randomize the sequence each time."
+    },
+    {
+      "title": "The Colorful Crystals",
+      "setupFlavor": "Four pedestals of glowing crystals in different colors (red, green, blue, yellow).",
+      "mechanic": "Touch them in the correct order to unlock treasure. Wrong order deals mild damage.",
+      "randomize": "Roll or shuffle to decide the color order each session."
+    },
+    {
+      "title": "The Singing Statues",
+      "setupFlavor": "Three robed statues, each with a musical note (la, ti, do, etc.). Pressing them in sequence is required.",
+      "mechanic": "Play the correct chord or get blasted by sound for small damage.",
+      "randomize": "Change which statue corresponds to which note each time."
+    },
+    {
+      "title": "Hidden Animal Footprints",
+      "setupFlavor": "A dusty floor with footprints (wolf, snake, bear, bird). Only one track is safe.",
+      "mechanic": "Choose the correct footprints to cross safely. Wrong step triggers a minor trap.",
+      "randomize": "Roll a d4 to pick the correct animal track each game."
+    },
+    {
+      "title": "The Runic Dial",
+      "setupFlavor": "A circular dial with six runes: sun, leaf, skull, sword, eye, coin. Only three correct runes open a door.",
+      "mechanic": "Align the correct runes in order to unlock or get trapped.",
+      "randomize": "Roll d6 thrice to decide the correct combo each time. Limited tries on higher difficulty."
+    },
+    {
+      "title": "The Mirror Code",
+      "setupFlavor": "A magic mirror displays a 5-letter code backward. A riddle says: 'Speak me forward to pass.'",
+      "mechanic": "Identify the reversed word. Failure = mild penalty.",
+      "randomize": "Pick a new random word each session."
+    },
+    {
+      "title": "The Four Fountains",
+      "setupFlavor": "Four colored water fountains (red, blue, green, clear). One is safe, others deal minor damage.",
+      "mechanic": "Guess or find clues to choose the correct fountain. Wrong choice deals 1 damage or skip turn.",
+      "randomize": "Shuffle or roll a d4 to decide which fountain is safe each time."
+    },
+    {
+      "title": "The Riddle of the Flames",
+      "setupFlavor": "Three braziers line the wall, unlit. A clue says: 'Light me in the order of birth, day, and night.'",
+      "mechanic": "Light them in correct order or get minor flame damage.",
+      "randomize": "Change which brazier is dawn/midday/night each time."
+    },
+    {
+      "title": "Jumbled Word Stones",
+      "setupFlavor": "Six stones on a pedestal, each with a letter. They form a word if rearranged properly.",
+      "mechanic": "Arrange to form a D&D-themed word. Three wrong tries triggers a small trap.",
+      "randomize": "Pick a random 4–6 letter word from a list and scramble it each session."
+    }
+  ],
+  "treasures": [
+    {
+      "title": "Healing Potion",
+      "rarity": "Common",
+      "easy": "Heal 2 HP (baseline).",
+      "medium": "Heal 3 HP.",
+      "hard": "Heal 4 HP or remove a negative condition."
+    },
+    {
+      "title": "Greater Healing Potion",
+      "rarity": "Uncommon",
+      "easy": "Heal 3 HP (baseline).",
+      "medium": "Heal 4 HP.",
+      "hard": "Heal 5 HP and draw 1 additional card."
+    },
+    {
+      "title": "Elixir of Life",
+      "rarity": "Rare",
+      "easy": "Heal 4 HP but skip your next turn (baseline).",
+      "medium": "Heal 4 HP and draw 1 card, skip turn.",
+      "hard": "Heal 5 HP, draw 1 card, skip turn, and gain temporary damage resistance."
+    },
+    {
+      "title": "Scroll of Fireball",
+      "rarity": "Scroll",
+      "easy": "Attack 2 to all foes in the next fight (baseline).",
+      "medium": "Attack 3 to all foes, discard 1 card after use.",
+      "hard": "Attack 4 to all foes and ignore resistances."
+    },
+    {
+      "title": "Scroll of Bless",
+      "rarity": "Scroll",
+      "easy": "+1 to any Attack or Heal you play (baseline).",
+      "medium": "+1 to Attack or Heal, and allow an ally to draw 1 card.",
+      "hard": "+2 to Attack or Heal, and no card discard needed."
+    },
+    {
+      "title": "Ring of Flickering Light",
+      "rarity": "Ring",
+      "easy": "Force an enemy to discard 1 card once per fight (baseline).",
+      "medium": "Force an enemy to discard 1 card and lose their next action.",
+      "hard": "Discard 2 cards from the enemy and stun them for a round."
+    },
+    {
+      "title": "Wand of Sparks",
+      "rarity": "Wand",
+      "easy": "Attack 1 (free action) once per fight (baseline).",
+      "medium": "Attack 2 as a free action.",
+      "hard": "Attack 2 with a chance to chain to a second enemy."
+    },
+    {
+      "title": "Amulet of Shielding",
+      "rarity": "Amulet",
+      "easy": "Ignore the next source of damage (baseline).",
+      "medium": "Ignore the next source of damage and heal 1 HP.",
+      "hard": "Ignore two sources of damage and reflect 1 damage."
+    },
+    {
+      "title": "Sword of Embers",
+      "rarity": "Weapon",
+      "easy": "Add +1 damage to an Attack card once per fight (baseline).",
+      "medium": "+2 damage and draw a card after use.",
+      "hard": "+3 damage and apply burn for ongoing damage."
+    },
+    {
+      "title": "Bow of True Flight",
+      "rarity": "Weapon",
+      "easy": "Re-draw 1 Attack card if desired (baseline).",
+      "medium": "Re-draw 1 Attack card and add +1 damage.",
+      "hard": "Re-draw 1 Attack card and keep both options."
+    },
+    {
+      "title": "Staff of Minor Healing",
+      "rarity": "Weapon",
+      "easy": "Heal 1 HP to self or ally once per fight (baseline).",
+      "medium": "Heal 2 HP and discard 1 negative effect.",
+      "hard": "Heal 3 HP and prevent the next damage source."
+    },
+    {
+      "title": "Boots of Haste",
+      "rarity": "Wondrous",
+      "easy": "One-time ability to re-roll an action (baseline).",
+      "medium": "Re-roll twice in a turn and draw a card.",
+      "hard": "Always re-roll once per fight for free."
+    },
+    {
+      "title": "Cloak of Shadows",
+      "rarity": "Wondrous",
+      "easy": "Force an opponent to skip attacking once per fight (baseline).",
+      "medium": "Skip an opponent's attack and reposition.",
+      "hard": "Avoid all attacks for one full round."
+    },
+    {
+      "title": "Elixir of Clarity",
+      "rarity": "Potion",
+      "easy": "Draw 2 cards before your turn (baseline).",
+      "medium": "Draw 3 cards and discard 1.",
+      "hard": "Draw 3 cards with no discard."
+    },
+    {
+      "title": "Phoenix Down Feather",
+      "rarity": "Rare",
+      "easy": "If reduced to 0 HP, Heal 2 HP (baseline).",
+      "medium": "Heal 3 HP and remove 1 negative effect.",
+      "hard": "Heal 4 HP, remove a negative effect, and act immediately."
+    },
+    {
+      "title": "Lantern of Revealing",
+      "rarity": "Wondrous",
+      "easy": "Ignore a forced-discard effect once per fight (baseline).",
+      "medium": "Ignore and reflect the discard effect onto an enemy.",
+      "hard": "Ignore and peek at an enemy's hand."
+    },
+    {
+      "title": "Tome of Knowledge",
+      "rarity": "Wondrous",
+      "easy": "Store 1 card after your turn and retrieve it later (baseline).",
+      "medium": "Store 2 cards and choose which to retrieve.",
+      "hard": "Store up to 3 cards with no penalty."
+    },
+    {
+      "title": "Bracers of Defense",
+      "rarity": "Armor",
+      "easy": "Reduce incoming Attack 3+ by 1 (baseline).",
+      "medium": "Reduce by 2 and reflect 1 damage.",
+      "hard": "Reduce all damage by 1 for the fight."
+    },
+    {
+      "title": "Vial of Acid Splash",
+      "rarity": "Potion",
+      "easy": "Attack 2 to a single target, ignoring shields (baseline).",
+      "medium": "Attack 3 with a lingering damage effect.",
+      "hard": "Attack 4 with splash damage to nearby foes."
+    },
+    {
+      "title": "Crystal of Foresight",
+      "rarity": "Wondrous",
+      "easy": "Peek at the top 2 monster cards and reorder them (baseline).",
+      "medium": "Peek at the top 3 cards and discard 1.",
+      "hard": "Reveal the entire deck and reorder the top 5 cards."
+    }
+  ]
+}
+
