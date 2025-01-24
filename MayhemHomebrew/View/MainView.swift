@@ -8,66 +8,75 @@
 import SwiftUI
 
 struct MainScreen: View {
-    @State private var difficulty: Difficulty? = nil
-    @State private var sections: [DungeonSection] = []
-    @State private var currentIndex: Int = 0
+    @State private var currentEncounter: EncounterSection? = nil
+    @State private var encounterCount = 0
+    let maxEncounters = 6
     
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             Text("Homebrew Mayhem")
                 .font(.largeTitle)
-                .padding()
+                .padding(.top)
             
-            // Difficulty
-            if let diff = difficulty {
-                Text("Current Difficulty: \(diff.rawValue)")
-                    .font(.title2)
-                    .foregroundColor(colorForDifficulty(diff))
-            } else {
-                Button("Roll Difficulty") {
-                    let roll = rollDifficulty()
-                    difficulty = roll
-                    sections = generateDungeonSections(count: 6, difficulty: roll)
-                    currentIndex = 0
-                }
-            }
-            
-            Spacer()
-            
-            // Show current corridor/room if we have them
-            if !sections.isEmpty {
-                let corridor = sections[currentIndex].corridor
-                let room = sections[currentIndex].room
-                let outcome = sections[currentIndex].outcome
+            // Show the current encounter if we have one
+            if let encounter = currentEncounter {
+                // Display the difficulty each time
+                Text("Difficulty Rolled: \(encounter.difficulty.rawValue)")
+                    .font(.title3)
+                    .foregroundColor(colorForDifficulty(encounter.difficulty))
                 
-                // Example layout: corridor card on top, room outcome below
-                VStack {
-                    CardView(cardData: corridor)
-                        .frame(width: 150) // The geometry inside sets height ratio
-                    Text("Corridor")
-                    
-                    Divider().padding()
-                    
-                    CardView(cardData: room)
+                // Top Card: corridor or room
+                CardView(cardData: encounter.location)
+                    .frame(width: 150)
+                
+                // Indicate corridor or room
+                Text("Location: \(encounter.location.cardType == .corridor ? "Corridor" : "Room")")
+                
+                Divider()
+                    .padding()
+                
+                // Bottom card: the outcome
+                if let outcomeCard = encounter.outcomeCard {
+                    CardView(cardData: outcomeCard)
                         .frame(width: 150)
-                    Text("Outcome: \(outcomeLabel(outcome))")
-                }
-            }
-            
-            Spacer()
-            
-            // Navigation to next section
-            Button("Next") {
-                if currentIndex < sections.count - 1 {
-                    currentIndex += 1
+                    Text("Encounter: \(encounterLabel(encounter.outcomeType))")
                 } else {
-                    // Possibly wrap around or show "Dungeon complete"
+                    // If outcome has no card, e.g. a fight you handle manually
+                    Text("Encounter: \(encounterLabel(encounter.outcomeType))")
+                    Text("No specific card for this type of fight.")
+                        .font(.footnote)
                 }
+                
+            } else {
+                Text("Press 'Next' to begin the 1st encounter.")
             }
-            .padding()
+            
+            // Keep track of how many we've done
+            Text("Encounter \(encounterCount) of \(maxEncounters)")
+            
+            // If we've done 6, show "Complete" else show Next button
+            if encounterCount < maxEncounters {
+                Button("Next") {
+                    // Generate a new encounter
+                    currentEncounter = generateEncounterSection()
+                    encounterCount += 1
+                }
+                .padding()
+            } else {
+                Text("All done! You've completed \(maxEncounters) encounters.")
+                    .font(.headline)
+                    //.padding()
+                
+                Button("Start New Adventure") {
+                       restartAdventure()
+                   }
+                   //.padding()
+            }
         }
+        .padding()
     }
     
+    // Helper
     func colorForDifficulty(_ diff: Difficulty) -> Color {
         switch diff {
         case .easy: return .green
@@ -76,14 +85,20 @@ struct MainScreen: View {
         }
     }
     
-    func outcomeLabel(_ outcome: RoomOutcome) -> String {
+    func encounterLabel(_ outcome: EncounterOutcome) -> String {
         switch outcome {
-        case .treasure: return "Treasure"
-        case .fightCritters: return "Fight (Critters)"
-        case .trap: return "Trap"
-        case .puzzle: return "Puzzle"
-        // etc.
-        default: return "Other"
+        case .treasure:     return "Treasure"
+        case .trap:         return "Trap"
+        case .puzzle:       return "Puzzle"
+        case .fightCritters:return "Fight (Critters)"
+        case .fightMobs:    return "Fight (Mobs)"
+        case .miniBoss:     return "Mini-Boss"
+        case .boss:         return "Boss"
         }
+    }
+    
+    func restartAdventure() {
+        encounterCount = 0
+        currentEncounter = nil
     }
 }

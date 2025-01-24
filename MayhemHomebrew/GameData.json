@@ -356,6 +356,62 @@
       "medium": "Peek at the top 3 cards and discard 1.",
       "hard": "Reveal the entire deck and reorder the top 5 cards."
     }
+  ],
+  "critters": [
+    {
+      "title": "Skeleton Rat",
+      "flavor": "A tiny undead rodent clacking with bony limbs."
+    },
+    {
+      "title": "Zombie Wolf",
+      "flavor": "A mangy, undead wolf with patches of fur missing."
+    },
+    {
+      "title": "Gray Ooze",
+      "flavor": "A small glob of acidic slime dissolving anything it touches."
+    }
+  ],
+  "mobs": [
+    {
+      "title": "Goblin Warband",
+      "flavor": "Ragged, green-skinned warriors armed with rusty blades and shortbows."
+    },
+    {
+      "title": "Kobold Squad",
+      "flavor": "Small reptilian creatures yipping orders in a high-pitched language."
+    },
+    {
+      "title": "Bandit Crew",
+      "flavor": "A scruffy group of outlaws eyeing your coinpurse hungrily."
+    }
+  ],
+  "miniBosses": [
+    {
+      "title": "Cyclops Guard",
+      "flavor": "A lumbering, one-eyed giant with poor depth perception but massive strength."
+    },
+    {
+      "title": "Stone Golem",
+      "flavor": "An animated construct of solid rock, slow but nearly impervious to harm."
+    },
+    {
+      "title": "Dark Knight",
+      "flavor": "A heavily armored warrior corrupted by evil magic, wielding a cursed blade."
+    }
+  ],
+  "bosses": [
+    {
+      "title": "Red Dragon",
+      "flavor": "A colossal, fire-breathing dragon, brimming with arrogance and flames."
+    },
+    {
+      "title": "Lich Lord",
+      "flavor": "An undead sorcerer who wields necromantic power and commands legions of undead."
+    },
+    {
+      "title": "Ancient Hydra",
+      "flavor": "A multi-headed serpent beast, regenerating heads as fast as they can be severed."
+    }
   ]
 }
 

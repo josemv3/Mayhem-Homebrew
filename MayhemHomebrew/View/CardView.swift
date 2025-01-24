@@ -7,17 +7,16 @@
 
 import SwiftUI
 
-struct CardView<T: Card>: View {
-    let cardData: T
-    
+struct CardView: View {
+    // Instead of `T: Card`, use an existential property:
+    let cardData: any Card
+
     var body: some View {
-        // Force a 3.5 : 2.5 ratio
         GeometryReader { geo in
             let width = geo.size.width
-            let height = width * (3.5 / 2.5)  // ensures the ratio
+            let height = width * (3.5 / 2.5)
             
             ZStack {
-                // Background
                 RoundedRectangle(cornerRadius: 8)
                     .fill(Color.orange.opacity(0.2))
                 
@@ -40,4 +39,3 @@ struct CardView<T: Card>: View {
         }
     }
 }
-

@@ -7,26 +7,29 @@
 
 import SwiftUI
 
+// The container for each "section" of the dungeon
 struct DungeonSection {
     let corridor: CorridorCard
     let room: RoomCard
-    let outcome: RoomOutcome
+    let outcome: EncounterOutcome
 }
 
+// This references GameData.shared:
 func generateDungeonSections(count: Int, difficulty: Difficulty) -> [DungeonSection] {
     var sections: [DungeonSection] = []
+    
     for _ in 0..<count {
         let randomCorridor = GameData.shared.corridors.randomElement()!
         let randomRoom = GameData.shared.rooms.randomElement()!
         
-        let outcome: RoomOutcome
+        let outcome: EncounterOutcome
         switch difficulty {
         case .easy:
-            outcome = getEasyRoomOutcome()
+            outcome = getEasyEncounterOutcome()
         case .medium:
-            outcome = getMediumRoomOutcome()
+            outcome = getMediumEncounterOutcome()
         case .hard:
-            outcome = getHardRoomOutcome()
+            outcome = getHardEncounterOutcome()
         }
         
         sections.append(DungeonSection(
@@ -35,6 +38,6 @@ func generateDungeonSections(count: Int, difficulty: Difficulty) -> [DungeonSect
             outcome: outcome
         ))
     }
+    
     return sections
 }
-
