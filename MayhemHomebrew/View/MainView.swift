@@ -10,9 +10,16 @@ import SwiftUI
 struct MainScreen: View {
     @State private var currentEncounter: EncounterSection? = nil
     @State private var encounterCount = 0
+    
+    // Keep track of total survived rooms/corridors
+    @State private var survivedCount = 0
+    
     @State private var unusedCorridors = GameData.shared.corridors
     @State private var unusedRooms = GameData.shared.rooms
     let maxEncounters = 6
+    
+    // This environment dismiss lets us pop back to StartScreen
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ScrollView {
@@ -20,55 +27,66 @@ struct MainScreen: View {
                 Text("Homebrew Mayhem")
                     .font(.largeTitle)
                 
+                // Show difficulty & survived
                 if let e = currentEncounter {
+                    HStack {
+                        Text("Difficulty: \(e.difficulty.rawValue)")
+                            .foregroundColor(colorForDifficulty(e.difficulty))
+                            .padding(.horizontal)
+                        
+                        //Spacer()
+                        
+                        Text("Survived: \(survivedCount)")
+                            .foregroundColor(.blue)
+                            .padding(.horizontal)
+                    }
+                    .font(.title3)
                     
-                    Text("Difficulty Roll: \(e.difficulty.rawValue)")
-                        .font(.title3)
-                        .foregroundColor(colorForDifficulty(e.difficulty))
-                    
-                    // The location card
+                    // Location card
                     LocationCardView(cardData: e.location)
                     
                     Text("Encounter \(encounterCount) of \(maxEncounters)")
                     
-                    // If we have NOT reached the 6th, show Next + Encounter
                     if encounterCount < maxEncounters {
-                        HStack(spacing: 40) {
+                        // Not at final location
+                        HStack(spacing: 16) {
                             Button("Next") {
                                 nextEncounter()
                             }
-                            // The user can still check the encounter
+                            
                             if let outcomeCard = e.outcomeCard {
                                 NavigationLink("Encounter") {
                                     EncounterView(
-                                             encounter: outcomeCard,   // use the local constant
-                                             outcomeType: e.outcomeType,
-                                             rewardTreasures: e.rewardTreasures
-                                         )
+                                        encounter: outcomeCard,
+                                        outcomeType: e.outcomeType,
+                                        rewardTreasures: e.rewardTreasures
+                                    )
                                 }
                             } else {
                                 Text("Encounter").foregroundColor(.gray)
                             }
+                            
+                            // End button to end game immediately
+                            Button("End") {
+                                endGame()
+                            }
+                            .foregroundColor(.red)
                         }
-                    }
-                    // ELSE if we ARE on the 6th (encounterCount == maxEncounters):
-                    else {
-                        // No Next button, but show final encounter link if available
+                    } else {
+                        // We've reached the 6th
                         if let outcomeCard = e.outcomeCard {
                             NavigationLink("Encounter") {
                                 EncounterView(
-                                         encounter: outcomeCard,   // use the local constant
-                                         outcomeType: e.outcomeType,
-                                         rewardTreasures: e.rewardTreasures
-                                     )
+                                    encounter: outcomeCard,
+                                    outcomeType: e.outcomeType,
+                                    rewardTreasures: e.rewardTreasures
+                                )
                             }
                         } else {
                             Text("Encounter").foregroundColor(.gray)
                         }
                         
-                        // Then show a Finish/Restart button
                         Button("Finish Adventure") {
-                            // We can do a small confirm alert or just restart
                             restart()
                         }
                         .buttonStyle(.borderedProminent)
@@ -76,18 +94,24 @@ struct MainScreen: View {
                         Text("This was your final location!")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
+                        
+                        // Also show an "End" button if they want to exit mid-late
+                        Button("End") {
+                            endGame()
+                        }
+                        .foregroundColor(.red)
                     }
                     
                 } else {
-                    // If no currentEncounter, prompt user to start or auto-generate
+                    // if no currentEncounter, let them begin
                     Text("Tap 'Next' to begin.")
                 }
             }
+            .padding()
         }
-        .padding()
         .navigationBarBackButtonHidden(true)
         .onAppear {
-            // Auto-generate the first if needed
+            // If brand new, generate the first
             if currentEncounter == nil && encounterCount == 0 {
                 nextEncounter()
             }
@@ -95,12 +119,15 @@ struct MainScreen: View {
     }
     
     func nextEncounter() {
-        // Only generate if we haven't exceeded the max
-        if encounterCount < maxEncounters {
-            currentEncounter = generateEncounterSection()
-            encounterCount += 1
-        }
-    }
+         if encounterCount < maxEncounters {
+             // Generate a new location & outcome
+             currentEncounter = generateEncounterSection()
+             encounterCount += 1
+             
+             // Each time we press "Next," we consider that we've survived the previous location
+             survivedCount += 1
+         }
+     }
     
     func restart() {
         // Reset everything to start fresh
@@ -109,6 +136,17 @@ struct MainScreen: View {
         // Optionally generate the first encounter automatically
         nextEncounter()
     }
+    
+    func endGame() {
+          // The entire party dies => go back to StartScreen and clear the survived count
+          survivedCount = 0
+          encounterCount = 0
+          currentEncounter = nil
+          
+          // We assume StartScreen is the previous view in the Nav stack
+          // so this dismiss will pop back to StartScreen
+          dismiss()
+      }
     
     func colorForDifficulty(_ diff: Difficulty) -> Color {
         switch diff {
