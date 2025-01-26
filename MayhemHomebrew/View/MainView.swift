@@ -10,73 +10,106 @@ import SwiftUI
 struct MainScreen: View {
     @State private var currentEncounter: EncounterSection? = nil
     @State private var encounterCount = 0
+    @State private var unusedCorridors = GameData.shared.corridors
+    @State private var unusedRooms = GameData.shared.rooms
     let maxEncounters = 6
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Homebrew Mayhem")
-                .font(.largeTitle)
-                .padding(.top)
-            
-            // Show the current encounter if we have one
-            if let encounter = currentEncounter {
-                // Display the difficulty each time
-                Text("Difficulty Rolled: \(encounter.difficulty.rawValue)")
-                    .font(.title3)
-                    .foregroundColor(colorForDifficulty(encounter.difficulty))
+        ScrollView {
+            VStack(spacing: 20) {
+                Text("Homebrew Mayhem")
+                    .font(.largeTitle)
                 
-                // Top Card: corridor or room
-                CardView(cardData: encounter.location)
-                    .frame(width: 150)
-                
-                // Indicate corridor or room
-                Text("Location: \(encounter.location.cardType == .corridor ? "Corridor" : "Room")")
-                
-                Divider()
-                    .padding()
-                
-                // Bottom card: the outcome
-                if let outcomeCard = encounter.outcomeCard {
-                    CardView(cardData: outcomeCard)
-                        .frame(width: 150)
-                    Text("Encounter: \(encounterLabel(encounter.outcomeType))")
+                if let e = currentEncounter {
+                    
+                    Text("Difficulty Roll: \(e.difficulty.rawValue)")
+                        .font(.title3)
+                        .foregroundColor(colorForDifficulty(e.difficulty))
+                    
+                    // The location card
+                    LocationCardView(cardData: e.location)
+                    
+                    Text("Encounter \(encounterCount) of \(maxEncounters)")
+                    
+                    // If we have NOT reached the 6th, show Next + Encounter
+                    if encounterCount < maxEncounters {
+                        HStack(spacing: 40) {
+                            Button("Next") {
+                                nextEncounter()
+                            }
+                            // The user can still check the encounter
+                            if let outcomeCard = e.outcomeCard {
+                                NavigationLink("Encounter") {
+                                    EncounterView(
+                                             encounter: outcomeCard,   // use the local constant
+                                             outcomeType: e.outcomeType,
+                                             rewardTreasures: e.rewardTreasures
+                                         )
+                                }
+                            } else {
+                                Text("Encounter").foregroundColor(.gray)
+                            }
+                        }
+                    }
+                    // ELSE if we ARE on the 6th (encounterCount == maxEncounters):
+                    else {
+                        // No Next button, but show final encounter link if available
+                        if let outcomeCard = e.outcomeCard {
+                            NavigationLink("Encounter") {
+                                EncounterView(
+                                         encounter: outcomeCard,   // use the local constant
+                                         outcomeType: e.outcomeType,
+                                         rewardTreasures: e.rewardTreasures
+                                     )
+                            }
+                        } else {
+                            Text("Encounter").foregroundColor(.gray)
+                        }
+                        
+                        // Then show a Finish/Restart button
+                        Button("Finish Adventure") {
+                            // We can do a small confirm alert or just restart
+                            restart()
+                        }
+                        .buttonStyle(.borderedProminent)
+                        
+                        Text("This was your final location!")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    
                 } else {
-                    // If outcome has no card, e.g. a fight you handle manually
-                    Text("Encounter: \(encounterLabel(encounter.outcomeType))")
-                    Text("No specific card for this type of fight.")
-                        .font(.footnote)
+                    // If no currentEncounter, prompt user to start or auto-generate
+                    Text("Tap 'Next' to begin.")
                 }
-                
-            } else {
-                Text("Press 'Next' to begin the 1st encounter.")
-            }
-            
-            // Keep track of how many we've done
-            Text("Encounter \(encounterCount) of \(maxEncounters)")
-            
-            // If we've done 6, show "Complete" else show Next button
-            if encounterCount < maxEncounters {
-                Button("Next") {
-                    // Generate a new encounter
-                    currentEncounter = generateEncounterSection()
-                    encounterCount += 1
-                }
-                .padding()
-            } else {
-                Text("All done! You've completed \(maxEncounters) encounters.")
-                    .font(.headline)
-                    //.padding()
-                
-                Button("Start New Adventure") {
-                       restartAdventure()
-                   }
-                   //.padding()
             }
         }
         .padding()
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            // Auto-generate the first if needed
+            if currentEncounter == nil && encounterCount == 0 {
+                nextEncounter()
+            }
+        }
     }
     
-    // Helper
+    func nextEncounter() {
+        // Only generate if we haven't exceeded the max
+        if encounterCount < maxEncounters {
+            currentEncounter = generateEncounterSection()
+            encounterCount += 1
+        }
+    }
+    
+    func restart() {
+        // Reset everything to start fresh
+        encounterCount = 0
+        currentEncounter = nil
+        // Optionally generate the first encounter automatically
+        nextEncounter()
+    }
+    
     func colorForDifficulty(_ diff: Difficulty) -> Color {
         switch diff {
         case .easy: return .green
@@ -85,20 +118,28 @@ struct MainScreen: View {
         }
     }
     
-    func encounterLabel(_ outcome: EncounterOutcome) -> String {
-        switch outcome {
-        case .treasure:     return "Treasure"
-        case .trap:         return "Trap"
-        case .puzzle:       return "Puzzle"
-        case .fightCritters:return "Fight (Critters)"
-        case .fightMobs:    return "Fight (Mobs)"
-        case .miniBoss:     return "Mini-Boss"
-        case .boss:         return "Boss"
-        }
-    }
-    
-    func restartAdventure() {
-        encounterCount = 0
-        currentEncounter = nil
-    }
+    func pickLocation() -> Card {
+           // Decide corridor vs room at random
+           let isCorridor = Bool.random()
+           
+           // If corridor was chosen but we ran out, fall back to a room.
+           if isCorridor, !unusedCorridors.isEmpty {
+               let index = Int.random(in: 0..<unusedCorridors.count)
+               let corridor = unusedCorridors.remove(at: index)
+               return corridor
+           } else if !unusedRooms.isEmpty {
+               let index = Int.random(in: 0..<unusedRooms.count)
+               let room = unusedRooms.remove(at: index)
+               return room
+           } else if !unusedCorridors.isEmpty {
+               // If we ran out of rooms, but have corridors left
+               let index = Int.random(in: 0..<unusedCorridors.count)
+               let corridor = unusedCorridors.remove(at: index)
+               return corridor
+           }
+           
+           // If both are empty, we can't pick. You might want to handle that gracefully:
+           fatalError("No more corridors or rooms available!")
+       }
 }
+

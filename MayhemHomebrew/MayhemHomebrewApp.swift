@@ -11,7 +11,9 @@ import SwiftUI
 struct MayhemHomebrewApp: App {
     var body: some Scene {
         WindowGroup {
-            MainScreen()
+            NavigationStack {
+                       StartScreen()
+                   }
         }
     }
 }
