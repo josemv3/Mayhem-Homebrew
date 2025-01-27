@@ -51,6 +51,7 @@ struct JSONTreasure: Codable {
 struct JSONEnemy: Codable {
     let title: String
     let flavor: String
+    let hp: String 
 }
 
 

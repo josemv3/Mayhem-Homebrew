@@ -115,4 +115,5 @@ struct EnemyCard: Card {
     let description: String
     let cardType: CardType = .enemy
     let imageName: String?
+    let hp: Int
 }

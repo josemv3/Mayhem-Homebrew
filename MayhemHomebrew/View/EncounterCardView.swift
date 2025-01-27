@@ -11,6 +11,7 @@ struct EncounterCardView: View {
     let cardData: Card       // e.g. Pit Trap, Treasure, etc.
     let outcomeType: EncounterOutcome
     
+    
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             

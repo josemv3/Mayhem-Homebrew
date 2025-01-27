@@ -73,16 +73,16 @@ final class GameData {
             
             // Enemies have no difficulty text, so we can map them to final `EnemyCard`
             self.critters = rawData.critters.map {
-                EnemyCard(title: $0.title, description: $0.flavor, imageName: $0.title)
+                EnemyCard(title: $0.title, description: $0.flavor, imageName: $0.title,hp: Int($0.hp) ?? 0)
             }
             self.mobs = rawData.mobs.map {
-                EnemyCard(title: $0.title, description: $0.flavor, imageName: $0.title)
+                EnemyCard(title: $0.title, description: $0.flavor, imageName: $0.title,hp: Int($0.hp) ?? 0)
             }
             self.miniBosses = rawData.miniBosses.map {
-                EnemyCard(title: $0.title, description: $0.flavor, imageName: $0.title)
+                EnemyCard(title: $0.title, description: $0.flavor, imageName: $0.title,hp: Int($0.hp) ?? 0)
             }
             self.bosses = rawData.bosses.map {
-                EnemyCard(title: $0.title, description: $0.flavor, imageName: $0.title)
+                EnemyCard(title: $0.title, description: $0.flavor, imageName: $0.title,hp: Int($0.hp) ?? 0)
             }
             
         } catch {

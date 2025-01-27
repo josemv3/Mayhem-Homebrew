@@ -360,93 +360,93 @@
   "critters": [
     {
       "title": "Skeleton Rat",
-      "flavor": "A tiny undead rodent clacking with bony limbs."
+      "flavor": "A tiny undead rodent clacking with bony limbs.",
       "hp": "5"
     },
     {
       "title": "Zombie Wolf",
-      "flavor": "A mangy, undead wolf with patches of fur missing."
+      "flavor": "A mangy, undead wolf with patches of fur missing.",
       "hp": "5"
     },
     {
       "title": "Gray Ooze",
-      "flavor": "A small glob of acidic slime dissolving anything it touches."
+      "flavor": "A small glob of acidic slime dissolving anything it touches.",
       "hp": "5"
     },
     {
       "title": "Spider",
-      "flavor": "A gross icky fuzzy little creeper skitters towards you."
+      "flavor": "A gross icky fuzzy little creeper skitters towards you.",
       "hp": "5"
     },
     {
       "title": "Broken Skeleton",
-      "flavor": "A funny little skeleton with legs that dont work right."
+      "flavor": "A funny little skeleton with legs that dont work right.",
       "hp": "5"
     },
     {
       "title": "Animated Armor",
-      "flavor": "Clunky pieces of armor magically band together and attack."
+      "flavor": "Clunky pieces of armor magically band together and attack.",
       "hp": "5"
     },
     {
       "title": "Python",
-      "flavor": "A big greeen fat snake slithers towards you."
+      "flavor": "A big greeen fat snake slithers towards you.",
       "hp": "5"
     }
   ],
   "mobs": [
     {
       "title": "Goblin War Party",
-      "flavor": "Ragged, green-skinned warriors armed with rusty blades and shortbows."
+      "flavor": "Ragged, green-skinned warriors armed with rusty blades and shortbows.",
       "hp": "10"
     },
     {
       "title": "Young Kobold",
-      "flavor": "Small reptilian creatures yipping orders in a high-pitched language."
+      "flavor": "Small reptilian creatures yipping orders in a high-pitched language.",
       "hp": "10"
     },
     {
       "title": "Skeleton War Party",
-      "flavor": "Skeletons rise up with swords and shields to attack."
+      "flavor": "Skeletons rise up with swords and shields to attack.",
       "hp": "10"
     }
   ],
   "miniBosses": [
     {
       "title": "Cyclops",
-      "flavor": "A lumbering, one-eyed giant with poor depth perception but massive strength."
+      "flavor": "A lumbering, one-eyed giant with poor depth perception but massive strength.",
       "hp": "20"
     },
     {
       "title": "Stone Giant",
-      "flavor": "An animated construct of solid rock, slow but nearly impervious to harm."
+      "flavor": "An animated construct of solid rock, slow but nearly impervious to harm.",
       "hp": "20"
     },
     {
       "title": "Dark Knight",
-      "flavor": "A heavily armored warrior corrupted by evil magic, wielding a cursed blade."
+      "flavor": "A heavily armored warrior corrupted by evil magic, wielding a cursed blade.",
       "hp": "20"
     },
     {
       "title": "Ice Giant",
-      "flavor": "An animated construct of solid ice, cold and brutal."
+      "flavor": "An animated construct of solid ice, cold and brutal.",
       "hp": "20"
     }
   ],
   "bosses": [
     {
       "title": "Red Dragon",
-      "flavor": "A colossal, fire-breathing dragon, brimming with arrogance and flames."
+      "flavor": "A colossal, fire-breathing dragon, brimming with arrogance and flames.",
       "hp": "35"
     },
     {
       "title": "Lich Lord",
-      "flavor": "An undead sorcerer who wields necromantic power and commands legions of undead."
+      "flavor": "An undead sorcerer who wields necromantic power and commands legions of undead.",
       "hp": "35"
     },
     {
       "title": "Black Dragon",
-      "flavor": "A colossal, acid-breathing dragon, brimming with arrogance and RAGE."
+      "flavor": "A colossal, acid-breathing dragon, brimming with arrogance and RAGE.",
       "hp": "35"
     }
   ]
