@@ -18,13 +18,17 @@ struct LocationCardView: View {
             if let imageName = cardData.imageName {
                 Image(imageName)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 500)      // or however tall you want
+                    .aspectRatio(contentMode: .fit)
+                    //.frame(height: 500)      // or however tall you want
+                    .frame(maxWidth: .infinity, minHeight: 400, maxHeight: 800)
+                    .scaledToFill()
                     .clipped()
             } else {
                 Rectangle()
                     .fill(Color.gray.opacity(0.3))
-                    .frame(height: 500)
+                    .scaledToFill()
+                    .frame(maxWidth: .infinity, maxHeight: 800)
+                    //.frame(height: 500)
                     .overlay(Text("No Image").foregroundColor(.black))
             }
             
@@ -37,6 +41,7 @@ struct LocationCardView: View {
             
             // 3) The text overlay
             VStack(alignment: .center, spacing: 4) {
+                
                 Text(cardData.title)
                     .font(.title2)
                     .bold()
@@ -47,7 +52,8 @@ struct LocationCardView: View {
                     .font(.subheadline)
                     .foregroundColor(Color.white.opacity(0.8))
             }
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, maxHeight: 100)
+        
             .padding()
         }
         .cornerRadius(10)

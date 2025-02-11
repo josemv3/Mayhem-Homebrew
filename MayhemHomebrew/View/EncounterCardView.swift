@@ -13,19 +13,27 @@ struct EncounterCardView: View {
     
     
     var body: some View {
-        ZStack(alignment: .bottomLeading) {
+        ZStack(alignment: .bottom) {
             
             // 1) The main image (or a gray placeholder if no imageName)
             if let imageName = cardData.imageName {
                 Image(imageName)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 500)
+                    .aspectRatio(contentMode: .fit)
+                    //.scaledToFit()
+                    //.aspectRatio(3/2, contentMode: .fill)
+                    .frame(maxWidth: .infinity, maxHeight: 800)
+                    //.frame(height: 500)
+                    .scaledToFill()
+                   
                     .clipped()
             } else {
                 Rectangle()
                     .fill(Color.gray.opacity(0.3))
-                    .frame(height: 500)
+                    //.scaledToFit()
+                    //.frame(height: 500)
+                    .frame(maxWidth: .infinity, maxHeight: 800)
+                    .scaledToFill()
                     .overlay(Text("No Image"))
             }
             
@@ -37,7 +45,7 @@ struct EncounterCardView: View {
             )
             
             // 3) The text overlay (title + subheading)
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .center, spacing: 4) {
                 Text(cardData.title)
                     .font(.title2)
                     .bold()
@@ -47,6 +55,7 @@ struct EncounterCardView: View {
                     .font(.subheadline)
                     .foregroundColor(Color.white.opacity(0.8))
             }
+            .frame(maxWidth: .infinity, maxHeight: 100)
             .padding()
         }
         .cornerRadius(10)

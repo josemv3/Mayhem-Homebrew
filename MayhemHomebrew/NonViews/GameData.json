@@ -219,23 +219,23 @@
     {
       "title": "Healing Potion",
       "rarity": "Common",
-      "easy": "Heal 2 HP (baseline).",
-      "medium": "Heal 3 HP.",
-      "hard": "Heal 4 HP or remove a negative condition."
+      "easy": "Heal 3 HP (baseline).",
+      "medium": "Heal 5 HP.",
+      "hard": "Heal 6 HP or remove a negative condition."
     },
     {
       "title": "Greater Healing Potion",
       "rarity": "Uncommon",
-      "easy": "Heal 3 HP (baseline).",
-      "medium": "Heal 4 HP.",
-      "hard": "Heal 5 HP and draw 1 additional card."
+      "easy": "Heal 6 HP (baseline).",
+      "medium": "Heal 7 HP.",
+      "hard": "Heal 8 HP and draw 1 additional card."
     },
     {
       "title": "Elixir of Life",
       "rarity": "Rare",
-      "easy": "Heal 4 HP but skip your next turn (baseline).",
-      "medium": "Heal 4 HP and draw 1 card, skip turn.",
-      "hard": "Heal 5 HP, draw 1 card, skip turn, and gain temporary damage resistance."
+      "easy": "Heal 4 HP + Ressurect fallen players",
+      "medium": "Heal 5 HP + Ressurect fallen players",
+      "hard": "Heal 7 HP + Ressurect fallen players."
     },
     {
       "title": "Scroll of Fireball",
@@ -282,30 +282,30 @@
     {
       "title": "Bow of True Flight",
       "rarity": "Weapon",
-      "easy": "Re-draw 1 Attack card if desired (baseline).",
-      "medium": "Re-draw 1 Attack card and add +1 damage.",
-      "hard": "Re-draw 1 Attack card and keep both options."
+      "easy": "Re-draw 1 Attack card if desired.",
+      "medium": "Re-draw 1 Attack card and add +3 damage.",
+      "hard": "One shot one enemy down (under 10HP)."
     },
     {
       "title": "Staff of Minor Healing",
       "rarity": "Weapon",
-      "easy": "Heal 1 HP to self or ally once per fight (baseline).",
-      "medium": "Heal 2 HP and discard 1 negative effect.",
-      "hard": "Heal 3 HP and prevent the next damage source."
+      "easy": "Heal 1 HP to self or ally once per round.",
+      "medium": "Heal 2 HP to self or ally once per round (Discard 1).",
+      "hard": "Heal 3 HP to self or ally once per round (Discard 2)."
     },
     {
       "title": "Boots of Haste",
       "rarity": "Wondrous",
-      "easy": "One-time ability to re-roll an action (baseline).",
-      "medium": "Re-roll twice in a turn and draw a card.",
-      "hard": "Always re-roll once per fight for free."
+      "easy": "One-time ability to play card again.",
+      "medium": "play an extra card and draw another.",
+      "hard": "play a card again, play an extra card and draw another."
     },
     {
       "title": "Cloak of Shadows",
       "rarity": "Wondrous",
-      "easy": "Force an opponent to skip attacking once per fight (baseline).",
-      "medium": "Skip an opponent's attack and reposition.",
-      "hard": "Avoid all attacks for one full round."
+      "easy": "Force an opponent to skip attacking once per fight.",
+      "medium": "Skip attack twice per fight (self) and discard 1",
+      "hard": "Skip attack twice per fight (group)."
     },
     {
       "title": "Elixir of Clarity",
@@ -317,44 +317,44 @@
     {
       "title": "Phoenix Down Feather",
       "rarity": "Rare",
-      "easy": "If reduced to 0 HP, Heal 2 HP (baseline).",
-      "medium": "Heal 3 HP and remove 1 negative effect.",
-      "hard": "Heal 4 HP, remove a negative effect, and act immediately."
+      "easy": "If reduced to 0 HP, Heal 3 HP.",
+      "medium": "If reduced to 0 HP, Heal 6 HP.",
+      "hard": "If reduced to 0 HP, Heal 6 HP, and act immediately."
     },
     {
       "title": "Lantern of Revealing",
       "rarity": "Wondrous",
-      "easy": "Ignore a forced-discard effect once per fight (baseline).",
+      "easy": "Ignore a forced-discard effect once per fight.",
       "medium": "Ignore and reflect the discard effect onto an enemy.",
-      "hard": "Ignore and peek at an enemy's hand."
+      "hard": "Ignore discard and peek at an enemy's hand."
     },
     {
       "title": "Tome of Knowledge",
       "rarity": "Wondrous",
-      "easy": "Store 1 card after your turn and retrieve it later (baseline).",
-      "medium": "Store 2 cards and choose which to retrieve.",
-      "hard": "Store up to 3 cards with no penalty."
+      "easy": "Draw 1 card after your turn.",
+      "medium": "Draw 2 cards after your turn.",
+      "hard": "Draw 2 cards after your turn, play one immediately."
     },
     {
       "title": "Bracers of Defense",
       "rarity": "Armor",
-      "easy": "Reduce incoming Attack 3+ by 1 (baseline).",
-      "medium": "Reduce by 2 and reflect 1 damage.",
-      "hard": "Reduce all damage by 1 for the fight."
+      "easy": "Reduce incoming Attack by 3 once per fight.",
+      "medium": "Reduce by 2 and reflect 2 damage once per fight.",
+      "hard": "Reduce all damage by once per fight."
     },
     {
       "title": "Vial of Acid Splash",
       "rarity": "Potion",
-      "easy": "Attack 2 to a single target, ignoring shields (baseline).",
-      "medium": "Attack 3 with a lingering damage effect.",
+      "easy": "Attack 2 to a single target, ignoring shields.",
+      "medium": "Attack 3 with a lingering damage effect (+ 2 next round).",
       "hard": "Attack 4 with splash damage to nearby foes."
     },
     {
       "title": "Crystal of Foresight",
       "rarity": "Wondrous",
-      "easy": "Peek at the top 2 monster cards and reorder them (baseline).",
+      "easy": "Peek at the top 2 monster cards and reorder them.",
       "medium": "Peek at the top 3 cards and discard 1.",
-      "hard": "Reveal the entire deck and reorder the top 5 cards."
+      "hard": "Reveal the entire deck and discard 5 cards."
     }
   ],
   "critters": [

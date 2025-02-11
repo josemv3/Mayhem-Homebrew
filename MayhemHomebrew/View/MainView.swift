@@ -10,6 +10,8 @@ import SwiftUI
 struct MainScreen: View {
     @State private var currentEncounter: EncounterSection? = nil
     @State private var encounterCount = 0
+    @EnvironmentObject var session: GameSession  // to see collected treasures if needed
+
     
     // Keep track of total survived rooms/corridors
     @State private var survivedCount = 0
@@ -22,7 +24,7 @@ struct MainScreen: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        ScrollView {
+        VStack {
             VStack(spacing: 20) {
                 Text("Homebrew Mayhem")
                     .font(.largeTitle)
@@ -44,6 +46,7 @@ struct MainScreen: View {
                     
                     // Location card
                     LocationCardView(cardData: e.location)
+                    Spacer()
                     
                     Text("Encounter \(encounterCount) of \(maxEncounters)")
                     
@@ -86,20 +89,19 @@ struct MainScreen: View {
                             Text("Encounter").foregroundColor(.gray)
                         }
                         
-                        Button("Finish Adventure") {
-                            restart()
+                        HStack {
+                            Button("New Dungeon") {
+                                restart()
+                            }
+                            .buttonStyle(.borderedProminent)
+                            
+                            // Also show an "End" button if they want to exit mid-late
+                            Button("End") {
+                                endGame()
+                            }
+                            .foregroundColor(.red)
+                            .padding(.leading)
                         }
-                        .buttonStyle(.borderedProminent)
-                        
-                        Text("This was your final location!")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                        
-                        // Also show an "End" button if they want to exit mid-late
-                        Button("End") {
-                            endGame()
-                        }
-                        .foregroundColor(.red)
                     }
                     
                 } else {
@@ -110,6 +112,13 @@ struct MainScreen: View {
             .padding()
         }
         .navigationBarBackButtonHidden(true)
+        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                NavigationLink(destination: InventoryView()) {
+                                    Text("Inventory (\(session.collectedTreasures.count))")
+                                }
+                            }
+                        }
         .onAppear {
             // If brand new, generate the first
             if currentEncounter == nil && encounterCount == 0 {

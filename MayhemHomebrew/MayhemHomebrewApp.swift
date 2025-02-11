@@ -9,11 +9,14 @@ import SwiftUI
 
 @main
 struct MayhemHomebrewApp: App {
+    @StateObject private var session = GameSession()
+    
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
+            //NavigationStack {
                        StartScreen()
-                   }
+                        .environmentObject(session)
+                   //}
         }
     }
 }
