@@ -1,0 +1,302 @@
+
+{
+  "scenarios": [
+    {
+      "id": 1,
+      "title": "The Underdark Labyrinth",
+      "quest": "Retrieve the Nightbloom, a relic that can restore sunlight to a cursed surface village, from a forsaken drow temple.",
+      "questDescription": "Darkness has fallen upon Eldershade. The sun, once bright and golden, now rises as a pale ghost, barely strong enough to warm the fields or light the villagers’ way. The crops are withering, children shiver even at noon, and shadows seem to linger longer than they should. Desperate, the village elders reveal an ancient secret—long ago, a flower of radiant light, the Nightbloom, was stolen from the land and hidden deep in the Underdark, the endless maze of tunnels beneath the world. Only by reclaiming it can the village break the curse and bring back the sun’s embrace. But the journey is not for the faint of heart. The Nightbloom lies within the ruined Temple of the Spider Queen, a place abandoned even by the dark elves who once worshiped there. The temple is buried in the Underdark Labyrinth, a twisting, ever-changing network of tunnels, filled with strange creatures, ancient magic, and dangers that lurk in the pitch-black shadows. Few who enter these tunnels return.",
+      "scenes": [
+        {
+          "sceneNumber": 1,
+          "sceneName": "The Fungal Grotto",
+          "imageUrl": "fungal_grotto.png",
+          "expandedDescription": "The party steps into a cavern alive with eerie, shifting light. Towering bioluminescent mushrooms pulse softly in hues of violet, teal, and crimson, casting long shadows that dance like spectral hands. The air hangs heavy with glittering spores that sting the lungs and blur vision, making the walls seem to breathe. Beneath the hum of glowing fungi, a chorus of faint click-clack sounds rattles from every direction—dormant myconid sentries, their bulbous caps twitching at the slightest disturbance. A faint path weaves through the grove, marked by patches of duller mushrooms where the spores thin slightly. But the safe route is narrow, and the wrong step could awaken the grove’s guardians—or worse, trigger a hallucinogenic spore cloud that bends reality itself.",
+          "checks": [
+            {
+              "skill": "Wits (Survival)",
+              "skillCheck": "4",
+              "successTitle": "Identify safe paths where spores are less dense",
+              "failTitle": "Sporeblind",
+              "failDescription": "The party stumbles into a dense spore cloud. Colors swirl violently, and the path vanishes. Each player hallucinates something silly but distracting (e.g., a giggling mushroom offering them candy, a tunnel that looks like a dragon’s mouth). They lose time rerouting and take 1 “Fungal Frenzy” token (see below)."
+            },
+            {
+              "skill": "Agility (Stealth)",
+              "skillCheck": "4",
+              "successTitle": "Creep silently past dormant myconid sentries",
+              "failTitle": "Shriekers!",
+              "failDescription": "    * A brittle mushroom snaps underfoot, releasing a piercing shriek! Dormant myconids burst awake, lobbing sticky spore-bombs (treat as entangle). The party must either: Outrun the myconids (group Agility roll) to escape, or Fight 3 Myconid Sprouts (weak stats, 5 HP each, deal 1 damage with spore-slaps)."
+            },
+            {
+              "skill": "Spirit (Nature Magic)",
+              "skillCheck": "4",
+              "successTitle": "Calm the fungi with a druidic chant or use a minor magical trick to confuse the guard and slip by.",
+              "failTitle": "Angry Antlers",
+              "failDescription": "The fungi recoil, and glowing lichen swarms the caster’s hands, forming stubborn “fungal gloves” that stick to weapons/items. For the next 10 minutes, the player must pass a Might (DC 5) check to grab or hold anything—or else it clatters loudly, risking more encounters"
+            },
+            {
+              "skill": "Might (Endurance)",
+              "skillCheck": "4",
+              "successTitle": "Power through the spores, coughing but unyielding",
+              "failTitle": "Coughing Fit",
+              "failDescription": "The player hacks uncontrollably, drawing attention. A glowing spore clings to their cheek, giving them a “Fungal Frenzy” token. While frenzied, they giggle( at bad times (-2 to Spirit) and see “spore friends” (distracting illusions). The token fades after they drink water or complete a short rest"
+            },
+            {
+              "skill": "Spirit (Deception)",
+              "skillCheck": "4",
+              "successTitle": "Mimic the myconids’ clicking language to blend in",
+              "failTitle": "Lost in Translation",
+              "failDescription": "The myconids tilt their caps, confused—then reply with rapid clicks that sound suspiciously like laughter. The spores around the party vibrate, forming a glowing arrow that points… the wrong way. The next path they choose leads to a dead end with a spore-slick pit (Agility check to avoid falling prone)"
+            }
+          ],
+          "tokenMechanic": {
+            "name": "Fungal Frenzy Token",
+            "description": "Collecting 3 tokens = The player’s PC becomes “Fungal Friend!” They temporarily (1d4 rounds) believe they’re a mushroom, refusing to move unless convinced (Spirit roll by another player) or carried. Adds comedy, not punishment!"
+          },
+          "treasureTwist": null
+        },
+        {
+          "sceneNumber": 2,
+          "sceneName": "The Chasm of Whispers",
+          "imageUrl": "Chasm_Whispers.png",
+          "expandedDescription": "The tunnel abruptly ends at a sheer drop into darkness. A yawning crevasse stretches 50 feet across, its depths alive with ghostly whispers that rise like smoke—pleading, giggling, and sobbing in languages both familiar and strange. The only way across is a frayed rope web strung between rusted iron spikes, its fibers glistening with acidic residue that sears flesh on contact. Bioluminescent lichen clings to the chasm walls, casting a sickly green glow that makes the ropes seem to slither like snakes. Below, jagged rocks and bone fragments protrude from the gloom, and the voices grow louder if anyone peers down, begging, “Help us… join us…” To cross, the party must balance speed and caution—the ropes decay with every touch, and the voices threaten to unravel their focus.",
+          "checks": [
+            {
+              "skill": "Agility (Acrobatics)",
+              "skillCheck": "4",
+              "successTitle": "Swing hand-over-hand with precision",
+              "failTitle": "Swing and Slip!",
+              "failDescription": "A rope snaps mid-swing! The player dangles one-handed over the chasm. Another player must immediately attempt a Might (Strength) or Agility check to grab them. If that fails, the falling player lands on a giant glowing mushroom 10 feet below (soft, bouncy, and harmless) but gains a “Whisper Curse” token (see below) from the voices’ mocking laughter"
+            },
+            {
+              "skill": "Spirit (Necromancy)",
+              "skillCheck": "4",
+              "successTitle": "Command the voices to silence, steadying your mind.",
+              "failTitle": "Echoes of the Lost",
+              "failDescription": "The voices retaliate, flooding the caster’s mind with overlapping cries. The player’s hands glow faintly, and everything they touch whispers secrets for the next 10 minutes (e.g., a sword whimpers, “I miss my forge…”). Distracting! The player takes -2 to Wits checks until they wash their hands in clean water."
+            },
+            {
+              "skill": "Might (Strength)",
+              "skillCheck": "4",
+              "successTitle": "Tear the web apart and climb the chasm wall instead",
+              "failTitle": "Wall Woes",
+              "failDescription": "A chunk of rock breaks free, clattering into the abyss. The noise wakes 2 Rocktopus Babies (tiny stone octopi with googly eyes) that latch onto the climber! They’re harmless but super heavy. The player moves at half speed until they pass a Spirit (Animal Handling) check to calm the clingy critters—or feed them a shiny gem"
+            },
+            {
+              "skill": "Wits (Perception)",
+              "skillCheck": "4",
+              "successTitle": "Notice which ropes are least corroded by acid",
+              "failTitle": "Acid Anguish",
+              "failDescription": "The player grabs a corroded rope coated in invisible acid. They take 1 point of damage (narrate as “your palm stings like 10 bee kisses!”) and drop anything they’re holding. The item plummets, but the voices toss it back up… now slimy and cursed. The item giggles when used until washed"
+            },
+            {
+              "skill": "Spirit (Intimidation)",
+              "skillCheck": "4",
+              "successTitle": "Roar at the voices to cow them into silence",
+              "failTitle": "The Voices Fight Back",
+              "failDescription": "The whispers coalesce into a shadowy face that mimics the player’s roar, then laughs hysterically. The entire rope web shudders, forcing everyone crossing to make an Agility (Balance) check or slide dangerously toward the edge (no fall damage, but they’re shaken and take -1 to rolls until they calm down)"
+            }
+          ],
+          "tokenMechanic": {
+            "name": "Whisper Curse Token",
+            "description": "Collecting 3 tokens = The player’s PC starts echoing the chasm’s voices uncontrollably. Until they rest, their speech is interrupted by random whispers (e.g., saying “Attack!” might become “Attack… please don’t…”). Other players must pass Wits (Insight) checks to understand their true intent!"
+          },
+          "treasureTwist": "If the party investigates the chasm’s bottom (via the bouncy mushroom or a rope), they find a Glowstone Amulet in the lichen—a trinket that lets the wearer understand but not speak languages for 1 hour. The voices plead, “Take us with you…!"
+        },
+        {
+          "sceneNumber": 3,
+          "sceneName": "The Drow Patrol",
+          "imageUrl": "Drow_Patrol.png",
+          "expandedDescription": "The narrow tunnel spills into a vaulted chamber strewn with jagged stalagmites, their surfaces etched with glowing spider sigils. A patrol of drow scouts materializes from the shadows—silent as smoke, their obsidian armor glinting like beetle shells. Their leader steps forward, a cruel smirk twisting her face as she twirls a serrated blade dripping with violet venom. “Surface filth,” she hisses, flanked by two archers nocking arrows fletched with raven feathers. “The Nightbloom is not for your kind. Turn back… or feed the spiders.” Behind her, a caged giant fire beetle clicks nervously, its bioluminescent abdomen casting flickering light that makes the drow’s shadows writhe like living things. The party has seconds to act before the drow attack—or worse, call for reinforcements",
+          "checks": [
+            {
+              "skill": "Spirit (Diplomacy)",
+              "skillCheck": "4",
+              "successTitle": "Offer a rare surface gem as a “tribute.",
+              "failTitle": "Poisoned Gift",
+              "failDescription": "The drow leader snatches the gem, bites it, and laughs. “Foolish sssin…” The gem was cursed! Now it talks in the player’s backpack, loudly critiquing their choices (“Ooh, bad move!”). Give the party a “Shadow Mark” token (see below). The gem must be abandoned or silenced with a Wits (Arcana) check."
+            },
+            {
+              "skill": "Wits (Tactics)",
+              "skillCheck": "4",
+              "successTitle": "Feign surrender, then ambush when they lower guards",
+              "failTitle": "Disarmed!",
+              "failDescription": "The drow see through the ruse. They force the party to toss their weapons into a sticky web net just out of reach. To retrieve them, a player must pass a Might (Strength) check to yank the web down or a Spirit (Telekinesis) check to “pull” a weapon free. Until then, fight with fists or… improvised fungus clubs (-1 to damage)"
+            },
+            {
+              "skill": "Agility (Initiative)",
+              "skillCheck": "4",
+              "successTitle": "Strike first, targeting the leader’s weapon hand",
+              "failTitle": "Webbed Wrath",
+              "failDescription": "The leader dodges, and her cloak erupts with spider silk strands that tangle the attacker’s legs. The player is restrained (can’t move) until another player spends an action to cut them free with a blade or Might check to rip the webs."
+            },
+            {
+              "skill": "Spirit (Illusion)",
+              "skillCheck": "4",
+              "successTitle": "Create a false cave-in to scatter them",
+              "failTitle": "Rocky Revenge",
+              "failDescription": "The false cave-in warps reality—a section of the ceiling actually crumbles, but instead of rocks, it rains 1d4 Singing Pebbles (harmless, chatty stones that follow the party and hum show tunes). They’re adorable but very loud (-2 to Stealth until discarded or gifted to a friendly NPC)."
+            },
+            {
+              "skill": "Might (Intimidation)",
+              "skillCheck": "4",
+              "successTitle": "Snap a drow’s blade with your bare hands",
+              "failTitle": "Blade’s Boast",
+              "failDescription": "The drow’s blade doesn’t break—it laughs in a squeaky voice, mocking the player. “Nice try, meat-fist!” The blade now telepathically insults the party during combat. To silence it, they must dunk it in water or pass a Spirit (Persuasion) check to compliment its edge"
+            }
+          ],
+          "tokenMechanic": {
+            "name": "Shadow Mark Token",
+            "description": "Collecting 3 tokens = The drow leader’s curse summons a Playful Shadow (a silly, non-combat NPC shaped like the player). It mimics their movements, steals shiny items, and shouts “Over here!” during stealth scenes. Remove it by shining a light or offering it a trinket."
+          },
+          "treasureTwist": "If the party defeats or outsmarts the patrol, they find a Spider Key on the leader—a jagged obsidian shard that unlocks a hidden treasure vault in the final temple. The fire beetle’s cage can also be freed; it becomes a temporary guide, lighting the way (grants +2 to Wits rolls in dark areas for 1 hour)"
+        },
+        {
+          "sceneNumber": 4,
+          "sceneName": "The Living Ooze",
+          "imageUrl": "Living_Ooze.png",
+          "expandedDescription": "The corridor narrows into a slick, glistening passage where the walls shimmer with acidic slime. Ahead, a massive gelatinous cube quivers like a giant jiggly dessert, its translucent body glowing faintly green. Bones, rusted weapons, and a single silver key float inside it, suspended like macabre prizes in a toxic snow globe. The cube oozes forward with a squelch, dissolving stone and metal with sizzling pops. Its surface ripples with trapped air bubbles, and faint blorp noises echo as it senses prey. To pass, the party must outsmart the cube—or risk becoming its next slimy souvenir!",
+          "checks": [
+            {
+              "skill": "Wits (Arcana)",
+              "skillCheck": "4",
+              "successTitle": "Recall the cube’s aversion to cold",
+              "failTitle": "Oops, Wrong Monster!",
+              "failDescription": "The player confuses the cube with a fire-averse ooze and hurls a torch. The cube absorbs it, growing a glowing orange “face” that breathes harmless (but scary) smoke rings. Now it’s Hot Jelly, moving twice as fast! Everyone must pass an Agility (Dodge) check or get lightly singed (no damage, but hair smells like campfire)."
+            },
+            {
+              "skill": "Spirit (Elemental Magic)",
+              "skillCheck": "4",
+              "successTitle": "Freeze part of the cube to carve a path.",
+              "failTitle": "Frosty Fumble",
+              "failDescription": "The spell freezes the cube… but also the floor! The party must cross a slippery ice path (-2 to Agility checks). If anyone falls, they slide into the cube’s thawing body, getting “Ooze Tokens” (see below). The key inside also freezes; it’s now stuck unless melted with fire (or a warm hug)."
+            },
+            {
+              "skill": "Agility (Reflexes)",
+              "skillCheck": "4",
+              "successTitle": "Lure it into a side tunnel and sprint past",
+              "failTitle": "Splish-Splash Splat!",
+              "failDescription": "The cube splits into 3 Mini Cubes (1 HP each, no damage) that bounce around like hyperactive blobs. They stick to armor, weapons, and hair, forcing the party to spend actions shaking them off. If ignored, Mini Cubes merge back into the big one—with the key still inside."
+            },
+            {
+              "skill": "Might (Brute Force)",
+              "skillCheck": "4",
+              "successTitle": "Shatter the cube’s core with a maul",
+              "failTitle": "Sticky Situation",
+              "failDescription": "The maul sinks into the cube… and gets stuck! The weapon is now coated in super-goo (-1 to damage until cleaned). The cube also burps a cloud of stinky gas—everyone must pass a Wits (Endurance) check or giggle uncontrollably (noisy, risks attracting patrols)."
+            },
+            {
+              "skill": "Spirit (Deception)",
+              "skillCheck": "4",
+              "successTitle": "Toss a decoy torch to distract it",
+              "failTitle": "Decoy Disaster",
+              "failDescription": "The cube swallows the torch, then spits it back as a flaming projectile! The corridor catches fire (harmless colorful flames), forcing the party to take a longer, spookier route filled with cobwebs and dripping sounds. Add 1d4 “Creepy Crawly” tokens (imaginary bugs in their clothes, -1 to Focus)."
+            }
+          ],
+          "tokenMechanic": {
+            "name": "Ooze Token",
+            "description": "Collecting 3 tokens = The player’s PC becomes “Slightly Squishy” (their skin jiggles, and their voice sounds like they’re underwater). To fix it, another player must pass a Spirit (Medicine) check with “anti-ooze” mud… or they stay jiggly for 1d4 hours (grants +1 to Spirit when making funny noises)"
+          },
+          "treasureTwist": "If retrieved, the silver key is cursed by the cube’s slime! It giggles when used and occasionally shouts, “Hurry up!” in a squeaky voice. Annoying, but it grants +2 to Wits (Perception) checks to spot traps—the key hates seeing its friends get hurt."
+        },
+        {
+          "sceneNumber": 5,
+          "sceneName": "The Shrine of the Betrayed",
+          "imageUrl": "Shrine_Betrayed.png",
+          "expandedDescription": "The air grows cold as the party enters a cavern dominated by a crumbling shrine. Cracked obsidian statues of eight-legged demons loom overhead, their gemstone eyes glowing faintly red. At the center, a spectral drow priestess hovers above a cracked altar, her form wreathed in shadowy spider silk. “You dare defy the Spider Queen?” she wails, her voice echoing with a thousand whispers. With a wave of her hand, a ghostly web tightens around the party’s limbs, freezing them in place—though they can still speak and wiggle their fingers, their legs feel like they’re stuck in maple syrup! The shrine’s walls pulse with faint runes, and a hidden passage behind the altar hints at a way forward… if they can break the priestess’s grip.",
+          "checks": [
+            {
+              "skill": "Spirit (Exorcism)",
+              "skillCheck": "4",
+              "successTitle": "Recite an elven hymn to disrupt her focus",
+              "failTitle": "Choir of the Clumsy",
+              "failDescription": "The hymn backfires, summoning 3 Bumbling Spirit Choristers (translucent, off-key ghosts) who follow the party. They “help” by loudly singing advice (“LEFT! No, RIGHT!”) during stealth checks (-2 to Agility). To dismiss them, the party must perform a silly group dance (no rolls required—just laughter)."
+            },
+            {
+              "skill": "Wits (Religion)",
+              "skillCheck": "4",
+              "successTitle": "Carve Lolth’s sigil backward to weaken her",
+              "failTitle": "Sigil Snafu",
+              "failDescription": "The backward sigil glows… and summons 10 Sparkle-Spiders (tiny, glittery arachnids). They’re harmless but obsessively cling to the player who carved the sigil, covering them in webs that glow in the dark. The webs attract 1 curious giant firefly (friendly, but very bright—grants -2 to Stealth)."
+            },
+            {
+              "skill": "Might (Willpower)",
+              "skillCheck": "4",
+              "successTitle": "Fight through the paralysis to smash the altar",
+              "failTitle": "Giggling Altar",
+              "failDescription": "The altar shudders and emits a high-pitched giggle. The player’s voice becomes squeaky for 10 minutes (“I’m a mighty warrior! Squeak!”). The priestess cackles, “Lolth loves jesterrrrsss…” To fix it, another player must make them laugh IRL (no magic needed!)."
+            },
+            {
+              "skill": "Agility (Escape)",
+              "skillCheck": "4",
+              "successTitle": "Retreat and find a hidden bypass.",
+              "failTitle": "Sticky Situation",
+              "failDescription": "The retreat triggers a Web Burst! The party is tangled in sticky, candy-scented silk. Each player must pass a Might (DC 5) check to break free—or be stuck until another player tickles them (automatic success, but involves giggles)."
+            },
+            {
+              "skill": "Spirit (Negotiation)",
+              "skillCheck": "4",
+              "successTitle": "Swear false allegiance to Lolth for passage",
+              "failTitle": "Spider’s Pact",
+              "failDescription": "Lolth’s symbol glows on the liar’s forehead, and 2 Silkworm Mascots (foot-long, cartoonish silk worms) appear. They call the player “Bestie!” and weave hats out of cobwebs (+1 to Spirit for style, but -2 to Stealth—the hats jingle). Remove them with a Wits (Animal Handling) check or a shiny bribe."
+            }
+          ],
+          "tokenMechanic": {
+            "name": "Webbed Woe Token",
+            "description": "Collecting 3 tokens = The player’s PC sprouts 8 fluffy spider legs from their back for 1 hour! They can’t control them (legs high-five everyone, knock over cups, etc.), but gain +2 to climbing checks. “I’m not a spider… I’m a… spiderapist?”"
+          },
+          "treasureTwist": "If the party comforts the priestess (e.g., telling her jokes or fixing the altar), she sobs, “Lolth forgot me…” and gifts them a Weeping Widow Brooch. When worn, it lets the user talk to spiders—but all spiders call them “Mom” or “Dad” and ask for snacks."
+        },
+        {
+          "sceneNumber": 6,
+          "sceneName": "The Temple Collapse",
+          "imageUrl": "Temple_Collapse.png",
+          "expandedDescription": "The moment the Nightbloom is plucked from its pedestal, the temple howls. Jagged cracks split the walls, spewing rivers of molten lava that glow like angry dragon veins. The ceiling groans, raining down shattered obsidian and bioluminescent crystals that explode into neon dust on impact. A thunderous roar fills the air as ancient pillars buckle, and the floor tilts like a sinking ship. Through the chaos, a sliver of daylight glows at the far end of the hall—the exit! But between the party and safety lies a gauntlet of falling rubble, lava geysers, and a bridge crumbling into the abyss. The Nightbloom pulses in its bearer’s hand, its petals shedding light that repels the lava… but only if they move fast enough!",
+          "checks": [
+            {
+              "skill": "Agility (Speed)",
+              "skillCheck": "4",
+              "successTitle": "Dodge falling debris in a desperate sprint",
+              "failTitle": "Rocky Road",
+              "failDescription": "The player trips over debris and faceplants into a pile of glowing crystal shards. They’re unharmed but now sparkle head-to-toe, turning them into a literal beacon (-2 to Stealth). The sparkles fade after 10 minutes… or if they take a dramatic bow (automatic fix)."
+            },
+            {
+              "skill": "Wits (Engineering)",
+              "skillCheck": "4",
+              "successTitle": "a pillar to shield the party from lava",
+              "failTitle": "Pillar Pancake",
+              "failDescription": "The pillar topples… directly into a lava pool, splashing molten goo! The party must leap over a 2-foot-wide lava stream. Everyone takes 1 “Hot Foot” token (feet feel like they’re on fire, -1 to Agility) until they dunk their boots in water or do a “cool dance” (group Spirit check)."
+            },
+            {
+              "skill": "Might (Strength)",
+              "skillCheck": "4",
+              "successTitle": "Heave a boulder aside to clear the exit",
+              "failTitle": "Boulder Buddies",
+              "failDescription": "The boulder doesn’t budge—instead, it splits into 3 smaller Rock Puppies (pebble creatures with wagging 'tails' of gravel). They follow the player, barking loudly and tripping anyone nearby (-1 to Agility). To calm them, offer a shiny gem or pass a Spirit (Animal Handling) check to play fetch."
+            },
+            {
+              "skill": "Spirit (Telekinesis)",
+              "skillCheck": "4",
+              "successTitle": "Hold the crumbling ceiling aloft",
+              "failTitle": "Ceiling Confetti",
+              "failDescription": "The ceiling shatters into harmless glowing confetti, burying the party in glittery debris. Everyone gains 1 'Glow Gunk' token (sticky glitter on hands, -2 to Sleight of Hand). But the confetti acts as a temporary bridge over lava… if they’re brave enough to tiptoe!"
+            },
+            {
+              "skill": "Spirit (Leadership)",
+              "skillCheck": "4",
+              "successTitle": "Coordinate the party’s escape with shouted orders.",
+              "failTitle": "Wrong Way!",
+              "failDescription": "The party mishears orders and veers into a side chamber filled with ancient drow snacks (100-year-old candy mushrooms). Eating one restores 1 HP but gives a squeaky voice for 1d4 minutes. The detour costs time—add 1d4 “Panic Tokens” to the group (see below)."
+            }
+          ],
+          "tokenMechanic": {
+            "name": "Panic Token (Group Pool)",
+            "description": "For every 3 tokens, the temple collapses slightly faster. The GM adds a silly environmental hazard (e.g., lava belches a rainbow, a stalactite falls shaped like a duck). No mechanical penalty—just chaotic fun!"
+          },
+          "treasureTwist": "If the party escapes with 0 Panic Tokens, they find a Lava Lily growing in the exit—a flower that blooms in heat. It can be used later to re-roll one failed Fire-related check. 'Don’t worry—it’s fireproof!'"
+        }
+      ],
+      "epilogue": "If the Nightbloom is delivered to the village, sunlight returns in a burst of prismatic colors. All lingering tokens (Hot Foot, Glow Gunk, etc.) turn into confetti poppers for a victory celebration. Cursed items? The talking key becomes the village’s beloved 'cheerleader,' and the Rock Puppies form a traveling band"
+    }
+  ]
+}

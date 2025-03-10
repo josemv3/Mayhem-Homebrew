@@ -19,8 +19,12 @@ struct StartScreen: View {
                     .padding()
 
                 NavigationLink("Start Adventure") {
-                    // Go to MainScreen (no difficulty param, because we re-roll each time)
                     MainScreen()
+                }
+                .buttonStyle(.borderedProminent)
+                
+                NavigationLink("Start Story Adventure") {
+                    RolePlayingScenarioListView()
                 }
                 .buttonStyle(.borderedProminent)
             }
@@ -28,3 +32,4 @@ struct StartScreen: View {
         }
     }
 }
+

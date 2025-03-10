@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 enum CardType {
     case corridor
     case room
